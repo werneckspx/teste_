@@ -39,11 +39,7 @@ CREATE TABLE despesas (
         ANO VARCHAR(5),
         FOREIGN KEY (REG_ANS) REFERENCES operadoras(Registro_ANS)
 );
-
-DELETE FROM operadoras;
-SELECT * FROM operadoras;
-SELECT * FROM despesas;
-SHOW WARNINGS;
+-- Comandos para liberar LOCAL
 
 SHOW GLOBAL VARIABLES LIKE 'local_infile';
 SET GLOBAL local_infile = 1;
@@ -51,6 +47,8 @@ SET GLOBAL local_infile = 1;
 GRANT FILE ON *.* TO 'root'@'localhost';
 FLUSH PRIVILEGES;
 
+
+-- Consulta 1
 SELECT 
     o.Razao_Social, 
     SUM(d.VL_SALDO_FINAL - d.VL_SALDO_INICIAL) AS Total_Despesas
@@ -58,12 +56,12 @@ FROM despesas d
 JOIN operadoras o ON d.REG_ANS = o.Registro_ANS
 WHERE 
     d.DESCRICAO LIKE '%EVENTOS SINISTROS CONHECIDOS OU AVISADOS  DE ASSISTENCIA A SAUDE MEDICO HOSPITALAR%'  -- Texto sanitizado
-    AND d.ANO = 2024  -- Ano fixo para teste
-    AND d.QUARTER = 4  -- Trimestre fixo para teste
+    AND d.ANO = 2024  
+    AND d.QUARTER = 4 
 GROUP BY o.Razao_Social
 ORDER BY Total_Despesas DESC
 LIMIT 10;
-
+-- Consulta 2
 SELECT 
     o.Razao_Social, 
     SUM(d.VL_SALDO_FINAL - d.VL_SALDO_INICIAL) AS Total_Despesas
