@@ -1,6 +1,6 @@
 # Resolução dos Problemas 
 
-Neste teste foram colocadas em prática diversas habilidades, principalmente técnicas, como conhecimento em Python, Banco de Dados e Node.js, além de organizalção e boas práticas para execução da tarefa.
+Neste teste foram colocadas em prática diversas habilidades, principalmente técnicas, como conhecimento em Python, Banco de Dados e Node.js, além de organização e boas práticas para execução da tarefa.
 
 > OBS: Python utilizado na versão 3.13.2, node na versão 22.14, MySQL 8. 
 
